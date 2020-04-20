@@ -28,14 +28,8 @@ def apply_coupons(cart, coupons)
   # Consult README for inputs and outputs
   #
   # REMEMBER: This method **should** update cart
-  
-  #Debug Prints
-  # puts "cart:"
-  # puts cart
-  # puts "coupons:"
-  # puts coupons
-  
-  coupon_cart =[]
+
+  coupon_cart = []
 
   new_cart = cart.map{|product|
     coupon = find_item_by_name_in_collection(product[:item], coupons)
@@ -50,15 +44,7 @@ def apply_coupons(cart, coupons)
 
   #new_cart is an array of items with their counts less coupons
   #coupon_cart is an array of coupons in the format {:item, :cost, :clearance, :count}
-
-  # #Debug Prints
-  # puts "new_cart:"
-  # puts new_cart
-
-  # puts "coupon_cart"
-  # puts coupon_cart
-
-  
+ 
    coupon_cart.each {|coupon|
     if coupon[:count] > 0
       cart_item = {
@@ -71,17 +57,7 @@ def apply_coupons(cart, coupons)
     end
    }
 
-  cart = new_cart #.select {|product| product[:count]}
-
-  cart
-
-  #Debug Prints
-  
-  # puts "result_cart"
-  # puts cart
-
-  cart
-
+  cart = new_cart
 
 end
 
@@ -116,9 +92,9 @@ def checkout(cart, coupons)
   # some irritated customers
   
     
-  new_cart = consolidate_cart(cart)
+  cart_consolidated = consolidate_cart(cart)
 
-  cart_w_coupons = apply_coupons(new_cart, coupons)
+  cart_w_coupons = apply_coupons(cart_consolidated, coupons)
   
   cart_w_clearance = apply_clearance(cart_w_coupons)
   
