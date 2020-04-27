@@ -32,3 +32,22 @@ def consolidate_cart(cart)
   end
   new_cart
 end
+
+# def consolidate_cart(cart)
+#   # Consult README for inputs and outputs
+#   #
+#   # REMEMBER: This returns a new Array that represents the cart. Don't merely
+#   # change `cart` (i.e. mutate) it. It's easier to return a new thing.
+#   new_cart = []
+
+#   cart.each { |cart_item|
+#     cart_item_name = cart_item[:item]
+#     if !find_item_by_name_in_collection(cart_item_name, new_cart)
+#       count = cart.select{ |selector| selector[:item] == cart_item_name }.length
+#       new_cart.push(cart_item.merge({:count => count}))
+#     end
+#   }
+
+#   new_cart
+
+# end
